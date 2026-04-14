@@ -1,0 +1,9 @@
+llm:
+  model_name: "deepseek-chat" # 为了省钱和速度快，演示用3.5足够。面试时可以说换成4o只需改这里
+  temperature: 0.1
+  max_tokens: 2048
+
+rag:
+  persist_directory: "./chroma_db" # 向量库本地存储路径
+  chunk_size: 500
+  chunk_overlap: 50
