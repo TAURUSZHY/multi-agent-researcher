@@ -1,20 +1,4 @@
-graph TD
-    User[用户输入复杂问题] --> Planner[Agent 1: 规划器 Planner]
-    Planner -->|拆解任务| Researcher[Agent 2: 研究员 Researcher]
-
-    subgraph 工具层
-        Researcher -.->|调用| Search[(Tavily 联网搜索)]
-        Researcher -.->|调用| VectorDB[(Chroma 向量库 RAG)]
-    end
-
-    Researcher -->|汇总信息| Reviewer[Agent 3: 审查员 Reviewer]
-    Reviewer -->|通过| FinalAnswer[生成最终回复]
-    Reviewer -.->|信息不足| Planner
-
-    classDef agent fill:#f9f,stroke:#333,stroke-width:2px
-    classDef tool fill:#bbf,stroke:#333,stroke-width:1px
-    class Planner,Researcher,Reviewer agent
-    class Search,VectorDB tool
+https://mermaid.ink/img/Z3JhcGggVEQKICAgIFVzZXJb55So5oi36L6T5YWl5aSN5p2C6Zeu6aKYXSAtLT4gUGxhbm5lclsiQWdlbnQgMTog6KeE5YiS5ZmoIFBsYW5uZXIiXQogICAgUGxhbm5lciAtLT585ouG6Kej5Lu75YqhfCBSZXNlYXJjaGVyWyJBZ2VudCAyOiDnoJTnqbblkZggUmVzZWFyY2hlciJdCgogICAgc3ViZ3JhcGggVG9vbExheWVyWyLlt6XlhbflsYIiXQogICAgICAgIFJlc2VhcmNoZXIgLS4tPnzosIPnlKh8IFNlYXJjaFsoIlRhdmlseSDogZTnvZHmkJzntKIiKV0KICAgICAgICBSZXNlYXJjaGVyIC0uLT586LCD55SofCBWZWN0b3JEQlsoIkNocm9tYSDlkJHph4/lupMgUkFHIildCiAgICBlbmQKCiAgICBSZXNlYXJjaGVyIC0tPnzmsYfmgLvkv6Hmga98IFJldmlld2VyWyJBZ2VudCAzOiDlrqHmn6XlkZggUmV2aWV3ZXIiXQogICAgUmV2aWV3ZXIgLS0+fOmAmui/h3wgRmluYWxBbnN3ZXJb55Sf5oiQ5pyA57uI5Zue5aSNXQogICAgUmV2aWV3ZXIgLS4tPnzkv6Hmga/kuI3otrN8IFBsYW5uZXIKCiAgICBjbGFzc0RlZiBhZ2VudCBmaWxsOiNmOWYsc3Ryb2tlOiMzMzMsc3Ryb2tlLXdpZHRoOjJweAogICAgY2xhc3NEZWYgdG9vbCBmaWxsOiNiYmYsc3Ryb2tlOiMzMzMsc3Ryb2tlLXdpZHRoOjFweAogICAgY2xhc3MgUGxhbm5lcixSZXNlYXJjaGVyLFJldmlld2VyIGFnZW50CiAgICBjbGFzcyBTZWFyY2gsVmVjdG9yREIgdG9vbA==
 
 
 基于LangGraph的多智能体RAG系统，实现Planner+Researcher协作架构。
